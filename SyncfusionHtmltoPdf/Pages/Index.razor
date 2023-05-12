@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <button disabled="@IsPdfViewerDialogModelVisible" class="bg-success text-white font-weight-bold" @onclick="CreateSyncfusionPdf">Create Syncfusion PDF</button>
+    <button disabled="@IsPdfViewerDialogModelVisible" class="bg-success text-white font-weight-bold" @onclick="CreateSyncfusionPdf">Create Syncfusion PDF</button> @(IsPdfViewerDialogModelVisible ? "Loading..." : "")
     <br />
     <br />
     <br />
