@@ -1,0 +1,103 @@
+﻿@page "/"
+@using Syncfusion.Blazor.PdfViewerServer
+@using Syncfusion.Blazor.PdfViewer
+@using Syncfusion.Blazor.Popups
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+
+
+</head>
+
+<body>
+    <button disabled="@IsPdfViewerDialogModelVisible" class="bg-success text-white font-weight-bold" @onclick="CreateSyncfusionPdf">Create Syncfusion PDF</button>
+    <br />
+    <br />
+    <br />
+    <SfDialog CloseOnEscape="false" ID="pdfDialog" @ref="@pdfViewerDialog" Target="#target" Width="90%" @bind-Visible=@IsPdfViewerDialogModelVisible
+              IsModal="true" CssClass="font-weight-bold" Header="Syncfusion Dialog" ShowCloseIcon="true">
+
+        <SfPdfViewerServer @ref="@pdfViewerServer" DocumentPath="@DocumentPath" IsSignatureEditable="true" ZoomValue="150" DownloadFileName="Syncfusion.pdf" ToolbarSettings="@ToolbarSettings">
+
+        </SfPdfViewerServer>
+    </SfDialog>
+    <div id="pageContent">
+        <style>
+            table {
+                font-family: arial, sans-serif;
+                border-collapse: collapse;
+                width: 100%;
+            }
+
+            td, th {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+
+            tr:nth-child(even) {
+                background-color: #dddddd;
+            }
+        </style>
+        @for (int i = 0; i < 150; i++)//This Content I added only for Testing Purpose only.
+        {
+            <p>
+                I am
+                going to provide
+                you a tutorial on HTML
+                and hope that it will
+                be very beneficial for you.
+            </p>
+            <p>
+                Look, I put here a lot
+                of spaces                    but            I know, Browser will ignore it.
+            </p>
+            <p>
+                You cannot determine the display of HTML
+            </p>
+            <p>
+                because resized windows may create different result.
+            </p>
+            <h2>HTML Table</h2>
+
+            <table>
+                <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td>Ernst Handel</td>
+                    <td>Roland Mendel</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td>Island Trading</td>
+                    <td>Helen Bennett</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi Tannamuri</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni Rovelli</td>
+                    <td>Italy</td>
+                </tr>
+            </table>
+        }
+    </div>
+</body>
+</html>
